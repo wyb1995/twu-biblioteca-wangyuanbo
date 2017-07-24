@@ -23,6 +23,7 @@ public class ExampleTest {
 
     @Test
     public void mainMenuTest() {
-        assertEquals(bibliotecaApp.mainMenu().length, 1);
+        assertEquals(bibliotecaApp.mainMenu().length, 2);
     }
+
 }

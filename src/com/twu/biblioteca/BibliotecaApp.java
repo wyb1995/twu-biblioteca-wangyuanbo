@@ -29,7 +29,7 @@ public class BibliotecaApp {
         }
     }
 
-    public static Integer chooseNumber() {
+    public static int chooseNumber() {
         System.out.println("Please enter You choose Number: ");
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
