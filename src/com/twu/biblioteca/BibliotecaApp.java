@@ -28,23 +28,17 @@ public class BibliotecaApp {
         return mainMenu;
     }
 
-    public static void checkOutBook() {
-        System.out.println("please input book Number: ");
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+    public static boolean checkOutBook(int number) {
         Book[] bookList = bookList();
         if (number > bookList.length || number <= 0) {
-            System.out.println("That book is not available.");
+            return false;
         } else {
             bookList[number - 1].setChecked(true);
-            System.out.println("Thank you! Enjoy the book");
+            return true;
         }
     }
 
-    public static boolean returnBook() {
-        System.out.println("please input book Name: ");
-        Scanner sc = new Scanner(System.in);
-        String name = sc.next();
+    public static boolean returnBook(String name) {
         Book[] bookList = bookList();
         for (Book book : bookList) {
             if (book.getName().equals(name) && book.getChecked()) {
@@ -89,13 +83,24 @@ public class BibliotecaApp {
                     Book[] bookList = bookList();
                     break;
                 case 2:
-                    checkOutBook();
+                    System.out.println("please input book Number: ");
+                    Scanner sc = new Scanner(System.in);
+                    number = sc.nextInt();
+                    boolean isChecked = checkOutBook(number);
+                    if (isChecked) {
+                        System.out.println("Thank you! Enjoy the book");
+                    } else {
+                        System.out.println("That book is not available.");
+                    }
                     break;
                 case 3:
-                    boolean isReturn = returnBook();
-                    if(isReturn){
+                    System.out.println("please input book Name: ");
+                    sc = new Scanner(System.in);
+                    String name = sc.next();
+                    boolean isReturn = returnBook(name);
+                    if (isReturn) {
                         System.out.println("Thank you for returning the book.");
-                    }else{
+                    } else {
                         System.out.println("That is not a valid book to return.");
                     }
                     break;

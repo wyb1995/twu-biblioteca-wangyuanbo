@@ -23,7 +23,16 @@ public class ExampleTest {
 
     @Test
     public void mainMenuTest() {
-        assertEquals(bibliotecaApp.mainMenu().length, 3);
+        assertEquals(bibliotecaApp.mainMenu().length, 4);
     }
 
+    @Test
+    public void checkoutBookTest() {
+        assertEquals(bibliotecaApp.checkOutBook(1), true);
+    }
+
+    @Test
+    public void returnBookTest() {
+        assertEquals(bibliotecaApp.returnBook("javaScript"), true);
+    }
 }
